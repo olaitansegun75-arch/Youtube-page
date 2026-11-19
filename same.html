@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Layout</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      padding-top: 70px;
+      padding-left: 90px;
+    }
+
+    /* Header Styling */
+    .Youtube-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      border-bottom: 1px solid #e0e0e0;
+      z-index: 100;
+    }
+
+    .Left-Section, .Center-Section, .right-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .Youtube-header img {
+      height: 32px;
+      cursor: pointer;
+    }
+
+    #profile-pics {
+      height: 42px;
+      width: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 50px;
+      padding: 4px 12px;
+    }
+
+    #search {
+      border: none;
+      outline: none;
+      width: 250px;
+      font-size: 14px;
+    }
+
+    .Center-Section button {
+      border: none;
+      background: #f0f0f0;
+      border-radius: 50%;
+      padding: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Sidebar Styling */
+    .sidebar-page {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      bottom: 0;
+      width: 80px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 15px;
+      gap: 40px;
+      z-index: 90;
+    }
+
+    .Youtube-sidebar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 10px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .Youtube-sidebar img {
+      height: 24px;
+      margin-bottom: 5px;
+    }
+
+    /* Video Grid Layout */
+    .first-channel, .second-channel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      row-gap: 40px;
+      column-gap: 16px;
+      margin: 20px;
+    }
+
+    .second-channel {
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+
+    /* Individual Video Card Styling */
+    .video-card {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .thumbnail {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .Video-title, .Video-Title {
+      font-size: 15px;
+      line-height: 1.4;
+      margin-bottom: 6px;
+      color: #0f0f0f;
+    }
+
+    .Author-Name {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #606060;
+      margin-bottom: 4px;
+    }
+
+    .channel-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .video-stats {
+      font-size: 13px;
+      color: #606060;
+      padding-left: 36px; /* Aligns stats under author text */
+    }
+
+    /* Tablet and Mobile Responsiveness */
+    @media (max-width: 768px) {
+      body {
+        padding-left: 0;
+      }
+
+      .sidebar-page {
+        display: none;
+      }
+
+      #search {
+        width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <div class="Youtube-header">
+    <div class="Left-Section">
+      <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\hamburger.png" id="hamburger" alt="Menu">
+      <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\download.webp" alt="Logo" id="logo">
+    </div>
+
+    <div class="Center-Section">
+      <div class="search-bar">
+        <input type="text" placeholder="Search" id="search">
+        <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\search.png" id="search-button" alt="Search">
+      </div>
+      <button type="button">
+        <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\mic.png" id="voice-button" alt="Voice Search">
+      </button>
+    </div>
+
+    <div class="right-section" id="Right">
+      <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\cloud-computing.png" id="cloud-computing" alt="Upload">
+      <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\notification.png" id="notification" alt="Notifications">
+      <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\download (1).webp" id="download" alt="Apps">
+      <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\camera Roll\Camera Roll\photo_2026-08-26_19-28-54 (2).jpg" id="profile-pics" alt="Profile">
+    </div>
+  </div>
+
+  <!-- Left Sidebar -->
+  <div class="sidebar-page">
+    <div class="Youtube-sidebar">
+      <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\home.png" id="side-home" alt="Home">
+      <div class="Home">Home</div>
+    </div>
+    <div class="Youtube-sidebar">
+      <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\compass.png" id="side-explore" alt="Explore">
+      <div class="Explore">Explore</div>
+    </div>
+    <div class="Youtube-sidebar">
+      <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\subscribe.png" id="subscription" alt="Subscription">
+      <div class="Subscription">Subscription</div>
+    </div>
+    <div class="Youtube-sidebar">
+      <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\originality.png" id="originally" alt="Originals">
+      <div class="Originals">Originals</div>
+    </div>
+    <div class="Youtube-sidebar">
+      <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\download (1).webp" id="YouTube-Music" alt="YouTube Music">
+      <div class="YouTube-Music">YouTube Music</div>
+    </div>
+    <div class="Youtube-sidebar">
+      <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\book.png" id="Books" alt="Library">
+      <div class="Library">Library</div>
+    </div>
+  </div>
+
+  <!-- Main Video Grid -->
+  <div class="Video-Grid">
+    <div class="first-channel" id="first-channel">
+      
+      <div class="video-card Video-Authorize">
+        <img src="c:\Users\olait\OneDrive\Desktop\Frontend Class\camera Roll\youtube page.avif" id="Video-Authorize" class="thumbnail" alt="Thumbnail">
+        <div class="Video-title"><b>The Lightning Sword In The Last Battle</b></div>
+        <div class="Author-Name">
+          <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\channels4_profile (1).jpg" class="channel-avatar" alt="Avatar">
+          <span>Lightning Hashira</span>
+        </div>
+        <div class="video-stats">3.4M views · 2 days ago</div>
+      </div>
+
+      <div class="video-card Pic-2">
+        <img class="youtube-video2 thumbnail" id="Pic-2" src="c:\Users\olait\OneDrive\Desktop\Frontend Class\camera Roll\youtube image 2.avif" alt="Thumbnail">
+        <div class="Video-title"><strong>Do These In Reality And Fall In Love With Handsome Men</strong></div>
+        <div class="Author-Name">
+          <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\channels4_profile.jpg" class="channel-avatar" alt="Avatar">
+          <span>Ademoye Abimbola</span>
+        </div>
+        <div class="video-stats">5M views · 1 week ago</div>
+      </div>
+
+      <div class="video-card Video-duplicate">
+        <img src="c:\Users\olait\OneDrive\Desktop\Frontend Class\camera Roll\youtube image 3.avif" class="youtube-indoor thumbnail" id="youtube-page" alt="Thumbnail">
+        <div class="Video-title"><b>The Prophet Speaks About God's Focus And Blessing For OLAITAN DANIEL SEGUN: SHOCKING!</b></div>
+        <div class="Author-Name">
+          <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\camera Roll\channels4_profile (2).jpg" class="channel-avatar" alt="Avatar">
+          <span>Apostle Joshua Selman</span>
+        </div>
+        <div class="video-stats">30.4M views · 2 days ago</div>
+      </div>
+
+    </div>
+
+    <div class="second-channel">
+
+      <div class="video-card Video-Authorized" id="Youtube-page">
+        <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\camera Roll\Camera Roll\youtube image 4.avif" class="Video-Authorized thumbnail" alt="Thumbnail">
+        <div class="Video-title"><b>Rich vs Poor :</b> The Financial Habits That Matter Most</div>
+        <div class="Author-Name">
+          <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\FORM AND BUTTON\channels4_profile (2).jpg" class="channel-avatar" alt="Avatar">
+          <span>Robert Maershel</span>
+        </div>
+        <div class="video-stats">3.4M views · 2 days ago</div>
+      </div>
+
+      <div class="video-card middle">
+        <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\hq720 (1).avif" class="middle thumbnail" alt="Thumbnail">
+        <div class="Video-Title"><b>How To Be Free From Power of Poverty And Become Millionaires In a Week</b></div>
+        <div class="Author-Name">
+          <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\FORM AND BUTTON\channels4_profile (3).jpg" class="channel-avatar" alt="Avatar">
+          <span>Elon Musk & Olaitan Daniel Segun</span>
+        </div>
+        <div class="video-stats">5M views · 1 week ago</div>
+      </div>
+
+      <div class="video-card Video-duplicate">
+        <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\hq720.avif" class="youtube-indoor3 thumbnail" id="Youtube-page3" alt="Thumbnail">
+        <div class="Video-title"><strong>Youth Enjoy The Lifestyle And Build To Have Good Rest</strong> @ Money-Cash</div>
+        <div class="Author-Name">
+          <img src="C:\Users\olait\OneDrive\Desktop\Frontend Class\camera Roll\channels4_profile (1).jpg" class="channel-avatar" alt="Avatar">
+          <span>Mackson Jeffery</span>
+        </div>
+        <div class="video-stats">30.4M views · 2 days ago</div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
